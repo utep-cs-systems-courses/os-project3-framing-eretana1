@@ -4,6 +4,7 @@ import socket
 # Sends a message through the given socket
 # Receives a socket, and a byte message
 def send_message(sock, message):
+    message = bytearray(message)
     # Create byte array that contains message size in 4 bytes
     msg_len = bytearray(len(message).to_bytes(4, "big"))
 
