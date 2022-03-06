@@ -66,8 +66,12 @@ if delay != 0:
 
 while 1:
     data = message_handler.receive_message(s)
-    print("Received '%s'" % data)
-    if len(data) == 0:
+    if data is None:
         break
+    else:
+        data = data.decode()
+        
+    print("Received '%s'" % data)
+    
 print("Zero length read.  Closing")
 s.close()

@@ -38,6 +38,7 @@ while True:
         print('Connected by', addr)
 
         os.write(1, 'Enter your Message: \n'.encode())
-        message = os.read(1, 1000).decode()
+        message = os.read(1, 1000)
+        
         message_handler.send_message(conn, message)
         conn.shutdown(socket.SHUT_WR)
